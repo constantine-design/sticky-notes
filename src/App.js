@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from 'react';
 import api from "./util/api";
@@ -30,10 +29,12 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <input value={title} onChange={(e) => setTitle(e.target.value)}/>
-      <button type="button" onClick={saveTodo}>add</button>
-      <TodoList 
+    <div className="App py-4">
+      <div className="container">
+        <input className="mb-4" value={title} onChange={(e) => setTitle(e.target.value)}/>
+        <button type="button" onClick={saveTodo}>add</button>
+      </div>
+      <TodoList
         items={todos}
         onItemClick={onTodoClick}
       />
