@@ -1,7 +1,7 @@
 const TodoItem = ({item, onClick}) => {
     return (
         <li
-          className="position-absolute shadow"
+          className="position-absolute shadow-sm"
           style={getStyles(item)}
           onClick={onClick.bind(null, item)}
         >
