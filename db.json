@@ -7,7 +7,7 @@
     },
     {
       "title": "SECOND",
-      "isDone": false,
+      "isDone": true,
       "id": 5
     }
   ]

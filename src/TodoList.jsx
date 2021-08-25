@@ -8,7 +8,7 @@ const TodoList = (props) => {
       let bounds = document.getElementById("todos-board").getBoundingClientRect();
       setMouseX( e.clientX - bounds.left );
       setMouseY( e.clientY - bounds.top);
-      console.log(mouseX, mouseY);
+      //console.log(mouseX, mouseY);
     }
     return(
         <ul
