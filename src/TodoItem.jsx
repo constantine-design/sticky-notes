@@ -17,12 +17,12 @@ const TodoItem = (props) => {
 
   const onMouseDown = (e)=>{
     if (e.button !== 0) return;
-    e.preventDefault()
+    //e.preventDefault()
     setIsDragging(true);
   }
 
   const onMouseUp = (e)=>{
-    e.preventDefault();
+    //e.preventDefault();
     setIsDragging(false);
   }
 
@@ -44,8 +44,21 @@ const TodoItem = (props) => {
         //onClick={props.onClick.bind(null, props.item)}
         onMouseDown={onMouseDown}
       >
-        <div className="card-header">{props.item.title}</div>
-        <textarea autofocus ></textarea>
+        <div className="card-header pe-2">
+          <div className="d-flex align-items-center">
+              <div className="d-flex flex-grow-1 text-right">
+                {props.item.title}
+              </div>
+              <div className="d-flex">
+                <button className="btn btn-danger btn-sm">✕</button>
+              </div>
+          </div>
+        </div>
+        <textarea
+          autofocus
+          style={{ width:"100%", height: "100%", resize: "none", border: "none" }}
+        >
+        </textarea>
       </li>
   );
 }

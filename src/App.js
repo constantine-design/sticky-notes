@@ -31,8 +31,19 @@ function App() {
   return (
     <div className="App py-4">
       <div className="container">
-        <input className="mb-4" value={title} onChange={(e) => setTitle(e.target.value)}/>
-        <button type="button" onClick={saveTodo}>add</button>
+        <div class="input-group mx-auto mb-4" style={{width:"400px"}}>
+          <input
+            className="form-control"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <button
+            className="btn btn-primary"
+            type="button"
+            onClick={saveTodo}>
+              add
+          </button>
+        </div>
       </div>
       <TodoList
         items={todos}
