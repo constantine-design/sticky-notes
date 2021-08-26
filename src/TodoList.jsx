@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 const TodoList = (props) => {
     return(
       <div
-        className="shadow-sm mx-auto p-2"
+        className="shadow-sm mx-auto p-2 rounded"
         style={{width:"1100px", backgroundColor:"#585858"}}
       >
         <ul

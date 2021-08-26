@@ -39,12 +39,13 @@ const TodoItem = (props) => {
 
   return (
       <li
-        className={"position-absolute shadow-sm"+(isDragging?" dragging":"") }
+        className={"position-absolute card bg-white shadow-sm"+(isDragging?" dragging":"") }
         style={{ top: itemPos.y, left: itemPos.x, ...getStyles(props.item) }}
         //onClick={props.onClick.bind(null, props.item)}
         onMouseDown={onMouseDown}
       >
-          {props.item.title}
+        <div className="card-header">{props.item.title}</div>
+        <textarea autofocus ></textarea>
       </li>
   );
 }
@@ -53,7 +54,7 @@ export default TodoItem;
 
 const getStyles = (item) => {
     return({
-        backgroundColor: item.isDone ? "green" : "red",
+        // backgroundColor: item.isDone ? "green" : "red",
         width: "200px",
         height: "200px",
         cursor: "pointer"
