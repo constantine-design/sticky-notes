@@ -33,16 +33,16 @@ function App() {
     },
     delete: (item)=>{
       api.delete(`/${item.id}`, {})
-      .then((data) => { setTodos(todos.filter((x)=>x.id!==item.id)); })
+      .then((data) => { setTodos(todos.filter((x)=>x.id!==item.id)); });
     },
     updatePosition: (item,x,y)=>{
       api.put(`/${item.id}`, {...item, top: y, left: x})
       .then(
         ({data}) =>
-          setTodos(todos.map(todo =>
-            item.id === todo.id ?
-            {...todo, top: y, left: x} :
-            item
+          setTodos(todos.map(n =>
+            item.id === n.id ?
+            {...n, top: y, left: x} :
+            n
         ))
       );
     },
