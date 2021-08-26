@@ -42,5 +42,5 @@ body {
 }
 
 .dragging {
-  cursor: moove;
+  cursor: move!important;
 }

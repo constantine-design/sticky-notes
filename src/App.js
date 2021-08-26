@@ -12,13 +12,13 @@ function App() {
     .then(({data}) => setTodos(data))
   }, []);
 
-  function onTodoClick(todo) {
+  /*function onTodoClick(todo) {
     api.put(`/${todo.id}`, {...todo, isDone: !todo.isDone})
     .then(
       ({data}) =>
         setTodos(todos.map(item => item.id === todo.id ? data : item))
     )
-  }
+  }*/
 
   function saveTodo() {
     api.post("", {
@@ -36,7 +36,7 @@ function App() {
       </div>
       <TodoList
         items={todos}
-        onItemClick={onTodoClick}
+        //onItemClick={onTodoClick}
       />
     </div>
   );

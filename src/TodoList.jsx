@@ -2,28 +2,26 @@ import TodoItem from "./TodoItem";
 import { useState, useEffect } from 'react';
 
 const TodoList = (props) => {
-    const [mouseX, setMouseX] = useState(0);
-    const [mouseY, setMouseY] = useState(0);
-    const onMouseMove = (e)=>{
-      let bounds = document.getElementById("todos-board").getBoundingClientRect();
-      setMouseX( e.clientX - bounds.left );
-      setMouseY( e.clientY - bounds.top);
-    }
     return(
+      <div
+        className="shadow-sm mx-auto p-2"
+        style={{width:"1100px", backgroundColor:"#585858"}}
+      >
         <ul
           id="todos-board"
-          className="position-relative list-unstyled bg-white shadow-sm mx-auto"
-          style={{height: "700px", width: "1100px"}}
-          onMouseMove={onMouseMove}
+          className="position-relative list-unstyled bg-white mb-0"
+          style={{height:"700px"}}
         >
             {props.items.map(item =>
                <TodoItem
+                key={item.id}
                 item={item}
-                mouse={{x:mouseX, y:mouseY}}
-                onClick={props.onItemClick}
+                //onClick={props.onItemClick}
+                parentCssId="todos-board"
                />
             )}
         </ul>
+      </div>
     )
 }
 
