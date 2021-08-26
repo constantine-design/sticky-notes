@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const TodoItem = (props) => {
 
-  const [itemPos, setItemPos] = useState({x:10,y:10});
+  const [itemPos, setItemPos] = useState({x:props.item.left,y:props.item.top});
   const [isDragging, setIsDragging] = useState(false);
   const bounds = document.getElementById(props.parentCssId).getBoundingClientRect();
 
@@ -24,6 +24,7 @@ const TodoItem = (props) => {
   const onMouseUp = (e)=>{
     //e.preventDefault();
     setIsDragging(false);
+    props.manageTodo.updatePosition(props.item,itemPos.x,itemPos.y);
   }
 
   const onMouseMove = (e)=>{
@@ -50,12 +51,16 @@ const TodoItem = (props) => {
                 {props.item.title}
               </div>
               <div className="d-flex">
-                <button className="btn btn-danger btn-sm">✕</button>
+                <button
+                  className="btn btn-danger btn-sm"
+                  onClick={()=>props.manageTodo.delete(props.item)}
+                >
+                  ✕
+                </button>
               </div>
           </div>
         </div>
         <textarea
-          autofocus
           style={{ width:"100%", height: "100%", resize: "none", border: "none" }}
         >
         </textarea>

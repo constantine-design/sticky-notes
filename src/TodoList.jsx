@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 const TodoList = (props) => {
     return(
       <div
-        className="shadow-sm mx-auto p-2 rounded"
+        className="shadow-sm mx-auto p-3 rounded"
         style={{width:"1100px", backgroundColor:"#585858"}}
       >
         <ul
@@ -16,6 +16,7 @@ const TodoList = (props) => {
                <TodoItem
                 key={item.id}
                 item={item}
+                manageTodo={props.manageTodo}
                 //onClick={props.onItemClick}
                 parentCssId="todos-board"
                />

@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     api.get()
-    .then(({data}) => setTodos(data))
+    .then(({data}) => setTodos(data));
   }, []);
 
   /*function onTodoClick(todo) {
@@ -20,18 +20,38 @@ function App() {
     )
   }*/
 
-  function saveTodo() {
-    api.post("", {
-      title,
-      isDone: false
-    })
-    .then(({data}) => setTodos([...todos, data]))
+  const manageTodo = {
+    new: ()=>{
+      api.post("", {
+        title,
+        body: "",
+        isDone: false,
+        top: 10,
+        left: 10
+      })
+      .then(({data}) => { setTodos([...todos, data]); console.log({data}); })
+    },
+    delete: (item)=>{
+      api.delete(`/${item.id}`, {})
+      .then((data) => { setTodos(todos.filter((x)=>x.id!==item.id)); })
+    },
+    updatePosition: (item,x,y)=>{
+      api.put(`/${item.id}`, {...item, top: y, left: x})
+      .then(
+        ({data}) =>
+          setTodos(todos.map(todo =>
+            item.id === todo.id ?
+            {...todo, top: y, left: x} :
+            item
+        ))
+      );
+    },
   }
 
   return (
     <div className="App py-4">
       <div className="container">
-        <div class="input-group mx-auto mb-4" style={{width:"400px"}}>
+        <div className="input-group mx-auto mb-4" style={{width:"400px"}}>
           <input
             className="form-control"
             value={title}
@@ -40,13 +60,14 @@ function App() {
           <button
             className="btn btn-primary"
             type="button"
-            onClick={saveTodo}>
+            onClick={manageTodo.new}>
               add
           </button>
         </div>
       </div>
       <TodoList
         items={todos}
+        manageTodo={manageTodo}
         //onItemClick={onTodoClick}
       />
     </div>
