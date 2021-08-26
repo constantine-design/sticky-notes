@@ -1,11 +1,15 @@
 import { useState } from 'react';
 
 const TodoItem = ({item, onClick, mouse}) => {
-  const [itemPos, setItemPos] = useState({x:0,y:0});
+  const [itemPos, setItemPos] = useState({x:10,y:10});
   const [isDragging, setIsDragging] = useState(false);
-  let x=0; let y=0;
+  let x, y;
   if (isDragging) {
-    y=mouse.y-10; x=mouse.x-10;
+    y=mouse.y-10;
+    x=mouse.x-10;
+  } else {
+    y=itemPos.y;
+    x=itemPos.x;
   }
   console.log(mouse);
   return (
@@ -14,7 +18,10 @@ const TodoItem = ({item, onClick, mouse}) => {
         style={{ top: y, left: x, ...getStyles(item) }}
         onClick={onClick.bind(null, item)}
         onMouseDown={()=>{ setIsDragging(true); }}
-        onMouseUp={()=>{ setIsDragging(false); }}
+        onMouseUp={()=>{
+          setIsDragging(false);
+          setItemPos({x:mouse.x,y:mouse.y}) 
+        }}
       >
           {item.title}
       </li>

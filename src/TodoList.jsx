@@ -4,11 +4,10 @@ import { useState, useEffect } from 'react';
 const TodoList = (props) => {
     const [mouseX, setMouseX] = useState(0);
     const [mouseY, setMouseY] = useState(0);
-    function onMouseMove(e) {
+    const onMouseMove = (e)=>{
       let bounds = document.getElementById("todos-board").getBoundingClientRect();
       setMouseX( e.clientX - bounds.left );
       setMouseY( e.clientY - bounds.top);
-      //console.log(mouseX, mouseY);
     }
     return(
         <ul
