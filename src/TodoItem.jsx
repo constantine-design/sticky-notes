@@ -4,6 +4,8 @@ const TodoItem = (props) => {
 
   const [itemPos, setItemPos] = useState({x:props.item.left,y:props.item.top});
   const [isDragging, setIsDragging] = useState(false);
+  const [bodyText, setBodyText] = useState(props.item.body);
+
   const bounds = document.getElementById(props.parentCssId).getBoundingClientRect();
 
   useEffect(() => {
@@ -61,7 +63,11 @@ const TodoItem = (props) => {
           </div>
         </div>
         <textarea
+          className="p-2"
           style={{ width:"100%", height: "100%", resize: "none", border: "none" }}
+          value={bodyText}
+          onChange={(e)=>setBodyText(e.target.value)}
+          onBlur={()=>props.manageTodo.updateBody(props.item,bodyText)}
         >
         </textarea>
       </li>

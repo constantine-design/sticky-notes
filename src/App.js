@@ -12,6 +12,7 @@ function App() {
     .then(({data}) => setTodos(data));
   }, []);
 
+  // Original Function
   /*function onTodoClick(todo) {
     api.put(`/${todo.id}`, {...todo, isDone: !todo.isDone})
     .then(
@@ -29,21 +30,43 @@ function App() {
         top: 10,
         left: 10
       })
-      .then(({data}) => { setTodos([...todos, data]); console.log({data}); })
+      .then(({data}) => {
+        setTodos([...todos, data]);
+        console.log({data});
+      });
+      setTitle("");
     },
     delete: (item)=>{
-      api.delete(`/${item.id}`, {})
-      .then((data) => { setTodos(todos.filter((x)=>x.id!==item.id)); });
+      api.delete(`/${item.id}`).then((deleted) => {
+        api.get()
+          .then(({data}) => setTodos(data));
+        console.log(deleted);
+      });
     },
     updatePosition: (item,x,y)=>{
       api.put(`/${item.id}`, {...item, top: y, left: x})
       .then(
-        ({data}) =>
+        ({data}) => {
           setTodos(todos.map(n =>
-            item.id === n.id ?
+            n.id === item.id ?
             {...n, top: y, left: x} :
             n
-        ))
+          ));
+          console.log({data});
+        }
+      );
+    },
+    updateBody: (item,body)=>{
+      api.put(`/${item.id}`, {...item, body: body})
+      .then(
+        ({data}) => {
+          setTodos(todos.map(n =>
+            n.id === item.id ?
+            {...n, body: body} :
+            n
+          ));
+          console.log({data});
+        }
       );
     },
   }

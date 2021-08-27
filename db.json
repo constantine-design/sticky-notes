@@ -1,28 +1,20 @@
 {
   "todos": [
     {
-      "title": "TEST",
-      "body": "",
+      "title": "My New Item",
+      "body": "This is description",
       "isDone": false,
-      "top": 369,
-      "left": 809,
+      "top": 242,
+      "left": 462,
       "id": 1
     },
     {
-      "title": "TEST2",
-      "body": "",
+      "title": "Next",
+      "body": "Another",
       "isDone": false,
-      "top": 162,
-      "left": 346,
+      "top": 12,
+      "left": 857,
       "id": 2
-    },
-    {
-      "title": "WWWW",
-      "body": "",
-      "isDone": false,
-      "top": 84,
-      "left": 61,
-      "id": 3
     }
   ]
 }
