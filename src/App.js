@@ -69,6 +69,19 @@ function App() {
         }
       );
     },
+    toggleDone: (item)=>{
+      api.put(`/${item.id}`, {...item, isDone: !item.isDone})
+      .then(
+        ({data}) => {
+          setTodos(todos.map(n =>
+            n.id === item.id ?
+            {...n, isDone: !item.isDone} :
+            n
+          ));
+          console.log({data});
+        }
+      );
+    },
   }
 
   return (

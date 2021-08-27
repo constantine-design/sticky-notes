@@ -1,12 +1,20 @@
 {
   "todos": [
     {
-      "title": "Header",
-      "body": "Body Text",
+      "title": "Test",
+      "body": "Note body",
       "isDone": false,
-      "top": 247,
-      "left": 476,
+      "top": 10,
+      "left": 554,
       "id": 1
+    },
+    {
+      "title": "Another test",
+      "body": "Note body 2",
+      "isDone": true,
+      "top": 9,
+      "left": 812,
+      "id": 2
     }
   ]
 }

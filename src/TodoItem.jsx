@@ -37,8 +37,8 @@ const TodoItem = (props) => {
     let y = e.clientY - bounds.top - 10;
     if (x<0) x = 0;
     if (y<0) y = 0;
-    if (x>bounds.width) x = bounds.width - 200;
-    if (y>bounds.height) y = bounds.height - 200;
+    if (x>bounds.width) x = bounds.width - 250;
+    if (y>bounds.height) y = bounds.height - 300;
     setItemPos({ x: x, y: y, });
   }
 
@@ -47,14 +47,32 @@ const TodoItem = (props) => {
         className={"position-absolute card bg-white shadow-sm"+(isDragging?" dragging":"") }
         style={{ top: itemPos.y, left: itemPos.x, ...getStyles(props.item) }}
         //onClick={props.onClick.bind(null, props.item)}
-        onMouseDown={onMouseDown}
       >
-        <div className="card-header pe-2">
+        <div className="card-header p-1">
           <div className="d-flex align-items-center">
-              <div className="d-flex flex-grow-1 text-right">
+              <div className="flex-grow-0">
+                <button
+                  className="btn btn-secondary btn-sm"
+                  onMouseDown={onMouseDown}
+                >
+                  ⇄
+                </button>
+              </div>
+              <div className="flex-grow-1 text-right">
                 {props.item.title}
               </div>
-              <div className="d-flex">
+              <div className="flex-grow-0">
+                <button
+                  className= {"btn btn-sm me-1"+(!props.item.isDone?" btn-warning":" btn-success")}
+                  style={{ paddingLeft: "0.36rem", paddingRight: "0.36rem" }}
+                  onClick={()=>props.manageTodo.toggleDone(props.item)}
+                >
+                  <span style={{fontSize: "1.2rem", lineHeight: "1rem"}}>
+                    { !props.item.isDone ? "☐" : "☑" }
+                  </span>
+                </button>
+              </div>
+              <div className="flex-grow-0">
                 <button
                   className="btn btn-danger btn-sm"
                   onClick={()=>props.manageTodo.delete(props.item)}
@@ -81,8 +99,8 @@ export default TodoItem;
 const getStyles = (item) => {
     return({
         // backgroundColor: item.isDone ? "green" : "red",
-        width: "200px",
-        height: "200px",
+        width: "250px",
+        height: "300px",
         cursor: "pointer"
     });
 }
