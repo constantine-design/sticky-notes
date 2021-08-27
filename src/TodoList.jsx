@@ -1,4 +1,5 @@
 import TodoItem from "./TodoItem";
+import { boardDimensions } from './lib/dimensions.js';
 
 const TodoList = (props) => {
     return(
@@ -25,8 +26,3 @@ const TodoList = (props) => {
 }
 
 export default TodoList;
-
-const boardDimensions =  {
-    width: 1100,
-    height: 700,
-}

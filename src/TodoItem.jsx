@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { todoDimensions } from './lib/dimensions.js';
 
 const TodoItem = (props) => {
 
@@ -36,19 +37,19 @@ const TodoItem = (props) => {
 
   const onMouseMove = (e)=>{
     if (!isDragging) return;
-    let x = e.clientX - bounds.left - 125;
+    let x = e.clientX - bounds.left - todoDimensions.width/2;
     let y = e.clientY - bounds.top - 22;
     if (x<0) x = 0;
     if (y<0) y = 0;
-    if (x>bounds.width-250) x = bounds.width - 250;
-    if (y>bounds.height-300) y = bounds.height - 300;
+    if (x>bounds.width-todoDimensions.width) x = bounds.width - todoDimensions.width;
+    if (y>bounds.height-todoDimensions.height) y = bounds.height - todoDimensions.height;
     setItemPos({ x: x, y: y, });
   }
 
   return (
       <li
         className={"position-absolute card bg-white shadow-sm"+(isDragging?" dragging":"") }
-        style={{ top: itemPos.y, left: itemPos.x, ...getStyles(props.item) }}
+        style={{ top: itemPos.y, left: itemPos.x, ...getStyles(todoDimensions) }}
         //onClick={props.onClick.bind(null, props.item)}
       >
         <div className="card-header p-1">
@@ -93,9 +94,9 @@ const TodoItem = (props) => {
 
 export default TodoItem;
 
-const getStyles = (item) => {
+const getStyles = (todoDimensions) => {
     return({
-        width: "250px",
-        height: "300px",
+        width: todoDimensions.width+"px",
+        height: todoDimensions.height+"px",
     });
 }

@@ -4,6 +4,7 @@ import api from "./util/api";
 import TodoList from "./TodoList";
 
 function App() {
+
   const [todos, setTodos] = useState([]);
   const [title, setTitle] = useState("");
 
@@ -12,14 +13,6 @@ function App() {
     .then(({data}) => setTodos(data));
   }, []);
 
-  // Original Function
-  /*function onTodoClick(todo) {
-    api.put(`/${todo.id}`, {...todo, isDone: !todo.isDone})
-    .then(
-      ({data}) =>
-        setTodos(todos.map(item => item.id === todo.id ? data : item))
-    )
-  }*/
 
   const manageTodo = {
     new: ()=>{
@@ -106,7 +99,6 @@ function App() {
       <TodoList
         items={todos}
         manageTodo={manageTodo}
-        //onItemClick={onTodoClick}
       />
     </div>
   );
