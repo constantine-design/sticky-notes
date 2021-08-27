@@ -6,7 +6,10 @@ const TodoItem = (props) => {
   const [isDragging, setIsDragging] = useState(false);
   const [bodyText, setBodyText] = useState(props.item.body);
 
-  const bounds = document.getElementById(props.parentCssId).getBoundingClientRect();
+  const [bounds, setBounds] = useState();
+  useEffect(() => {
+    setBounds( document.getElementById(props.parentCssId).getBoundingClientRect() );
+  }, []);
 
   useEffect(() => {
     if (isDragging) {
