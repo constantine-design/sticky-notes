@@ -37,10 +37,10 @@ function App() {
       setTitle("");
     },
     delete: (item)=>{
-      api.delete(`/${item.id}`).then((deleted) => {
-        api.get()
-          .then(({data}) => setTodos(data));
-        console.log(deleted);
+      api.delete(`/${item.id}`)
+        .then((deleted) => {
+          setTodos(todos.filter( t => t.id !== item.id) );
+          console.log(deleted);
       });
     },
     updatePosition: (item,x,y)=>{

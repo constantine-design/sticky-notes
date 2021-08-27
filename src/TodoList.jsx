@@ -1,5 +1,4 @@
 import TodoItem from "./TodoItem";
-import { useState, useEffect } from 'react';
 
 const TodoList = (props) => {
     return(
