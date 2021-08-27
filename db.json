@@ -1,20 +1,12 @@
 {
   "todos": [
     {
-      "title": "My New Item",
-      "body": "This is description",
+      "title": "test",
+      "body": "rwwewewerwererwerwer\nertertert\netert",
       "isDone": false,
-      "top": 242,
-      "left": 462,
+      "top": 94,
+      "left": 211,
       "id": 1
-    },
-    {
-      "title": "Next",
-      "body": "Another",
-      "isDone": false,
-      "top": 12,
-      "left": 857,
-      "id": 2
     }
   ]
 }
