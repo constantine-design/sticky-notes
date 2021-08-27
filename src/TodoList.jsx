@@ -3,20 +3,19 @@ import TodoItem from "./TodoItem";
 const TodoList = (props) => {
     return(
       <div
-        className="shadow-sm mx-auto p-3 rounded"
-        style={{width:"1100px", backgroundColor:"#585858"}}
+        className="shadow-sm mx-auto rounded"
+        style={{width: (boardDimensions.width+40)+"px", backgroundColor:"#585858", padding: "20px"}}
       >
         <ul
           id="todos-board"
           className="position-relative list-unstyled bg-white mb-0"
-          style={{height:"700px"}}
+          style={{height: boardDimensions.height+"px"}}
         >
             {props.items.map(item =>
                <TodoItem
                 key={item.id}
                 item={item}
                 manageTodo={props.manageTodo}
-                //onClick={props.onItemClick}
                 parentCssId="todos-board"
                />
             )}
@@ -26,3 +25,8 @@ const TodoList = (props) => {
 }
 
 export default TodoList;
+
+const boardDimensions =  {
+    width: 1100,
+    height: 700,
+}

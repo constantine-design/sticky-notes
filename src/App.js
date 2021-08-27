@@ -44,6 +44,7 @@ function App() {
       });
     },
     updatePosition: (item,x,y)=>{
+      if (x===item.left && y===item.top) return;
       api.put(`/${item.id}`, {...item, top: y, left: x})
       .then(
         ({data}) => {
@@ -57,6 +58,7 @@ function App() {
       );
     },
     updateBody: (item,body)=>{
+      if (body===item.body) return;
       api.put(`/${item.id}`, {...item, body: body})
       .then(
         ({data}) => {

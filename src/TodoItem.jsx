@@ -24,7 +24,7 @@ const TodoItem = (props) => {
 
   const onMouseDown = (e)=>{
     if (e.button !== 0) return;
-    //e.preventDefault()
+    e.preventDefault()
     setIsDragging(true);
   }
 
@@ -36,12 +36,12 @@ const TodoItem = (props) => {
 
   const onMouseMove = (e)=>{
     if (!isDragging) return;
-    let x = e.clientX - bounds.left - 10;
-    let y = e.clientY - bounds.top - 10;
+    let x = e.clientX - bounds.left - 125;
+    let y = e.clientY - bounds.top - 22;
     if (x<0) x = 0;
     if (y<0) y = 0;
-    if (x>bounds.width) x = bounds.width - 250;
-    if (y>bounds.height) y = bounds.height - 300;
+    if (x>bounds.width-250) x = bounds.width - 250;
+    if (y>bounds.height-300) y = bounds.height - 300;
     setItemPos({ x: x, y: y, });
   }
 
@@ -55,29 +55,23 @@ const TodoItem = (props) => {
           <div className="d-flex align-items-center">
               <div className="flex-grow-0">
                 <button
-                  className="btn btn-secondary btn-sm"
-                  onMouseDown={onMouseDown}
-                >
-                  ⇄
-                </button>
-              </div>
-              <div className="flex-grow-1 text-right">
-                {props.item.title}
-              </div>
-              <div className="flex-grow-0">
-                <button
-                  className= {"btn btn-sm me-1"+(!props.item.isDone?" btn-warning":" btn-success")}
-                  style={{ paddingLeft: "0.36rem", paddingRight: "0.36rem" }}
+                  className= {"btn btn-sm p-0"+(!props.item.isDone?" text-warning":" text-success")}
                   onClick={()=>props.manageTodo.toggleDone(props.item)}
                 >
-                  <span style={{fontSize: "1.2rem", lineHeight: "1rem"}}>
+                  <span style={{fontSize: "1.5rem", lineHeight: "1.5rem"}}>
                     { !props.item.isDone ? "☐" : "☑" }
                   </span>
                 </button>
               </div>
+              <div
+                className="flex-grow-1 text-start ps-2 drag-area"
+                onMouseDown={onMouseDown}
+              >
+                {props.item.title}
+              </div>
               <div className="flex-grow-0">
                 <button
-                  className="btn btn-danger btn-sm"
+                  className="btn text-danger btn-sm"
                   onClick={()=>props.manageTodo.delete(props.item)}
                 >
                   ✕
@@ -101,9 +95,7 @@ export default TodoItem;
 
 const getStyles = (item) => {
     return({
-        // backgroundColor: item.isDone ? "green" : "red",
         width: "250px",
         height: "300px",
-        cursor: "pointer"
     });
 }

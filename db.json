@@ -4,16 +4,16 @@
       "title": "Test",
       "body": "Note body",
       "isDone": false,
-      "top": 15,
-      "left": 548,
+      "top": 12,
+      "left": 839,
       "id": 1
     },
     {
       "title": "Another test",
       "body": "Note body 2",
       "isDone": true,
-      "top": 14,
-      "left": 808,
+      "top": 12,
+      "left": 572,
       "id": 2
     }
   ]
