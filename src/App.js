@@ -25,7 +25,7 @@ function App() {
       })
       .then(({data}) => {
         setTodos([...todos, data]);
-        console.log({data});
+        console.log(data);
       });
       setTitle("");
     },
@@ -46,7 +46,7 @@ function App() {
             {...n, top: y, left: x} :
             n
           ));
-          console.log({data});
+          console.log(data);
         }
       );
     },
@@ -60,7 +60,7 @@ function App() {
             {...n, body: body} :
             n
           ));
-          console.log({data});
+          console.log(data);
         }
       );
     },
@@ -73,7 +73,7 @@ function App() {
             {...n, isDone: !item.isDone} :
             n
           ));
-          console.log({data});
+          console.log(data);
         }
       );
     },

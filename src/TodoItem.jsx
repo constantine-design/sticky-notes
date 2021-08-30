@@ -65,10 +65,10 @@ const TodoItem = (props) => {
                 </button>
               </div>
               <div
-                className="flex-grow-1 text-start ps-2 drag-area"
+                className="flex-grow-1 text-start ps-1 drag-area align-self-stretch d-flex align-items-center"
                 onMouseDown={onMouseDown}
               >
-                {props.item.title}
+                <div>{props.item.title}</div>
               </div>
               <div className="flex-grow-0">
                 <button
