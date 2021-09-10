@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { todoDimensions } from './lib/dimensions.js';
+import { todoDimensions } from '../lib/dimensions.js';
 
 const TodoItem = (props) => {
 

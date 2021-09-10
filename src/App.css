@@ -44,9 +44,11 @@ body {
 .drag-area {
   cursor: grab;
 }
+
 .dragging .drag-area {
   cursor: move;
 }
+
 :focus-visible {
     outline: #c4c4c4 auto 1px;
 }

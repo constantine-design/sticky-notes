@@ -1,5 +1,5 @@
 import TodoItem from "./TodoItem";
-import { boardDimensions } from './lib/dimensions.js';
+import { boardDimensions } from '../lib/dimensions.js';
 
 const TodoList = (props) => {
     return(

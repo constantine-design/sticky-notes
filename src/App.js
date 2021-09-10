@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import api from "./util/api";
-import TodoList from "./TodoList";
+import TodoList from "./components/TodoList.jsx";
 
 function App() {
 

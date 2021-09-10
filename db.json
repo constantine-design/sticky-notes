@@ -4,16 +4,16 @@
       "title": "Header",
       "body": "With Header text",
       "isDone": true,
-      "top": 12,
-      "left": 841,
+      "top": 11,
+      "left": 842,
       "id": 2
     },
     {
       "title": "",
       "body": "Without header text",
       "isDone": false,
-      "top": 10,
-      "left": 578,
+      "top": 11,
+      "left": 585,
       "id": 5
     }
   ]
